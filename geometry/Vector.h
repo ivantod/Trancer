@@ -14,6 +14,8 @@ public:
 	Vector(double x, double y, double z);
 	virtual ~Vector();
 
+	void normalise();
+
 	Vector operator-() const;
 
 	Vector operator*(const double a) const;

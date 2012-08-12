@@ -39,9 +39,17 @@ void buildScene(Scene& scene) {
 
 int main() {
 
+//	const double zw = 100.0;
+//	const double zEye = 600.0;
+
+	const double zw = 50.0;
+	const double zEye = 500.0;
+	const double zDist = 1000.0;
+
+
 	cout << "*** Trancer starting!" << endl;
 
-	ViewPlane viewPlane(250,250,100,1);
+	ViewPlane viewPlane(250,250,zw,1);
 	viewPlane.setNumSamples(25);
 
 	cout << "+++ ViewPlane initialised." << endl;
@@ -50,7 +58,7 @@ int main() {
 
 	cout << "+++ RayTracer initialised." << endl;
 
-	Scene* scene = new Scene(viewPlane, tracer);
+	Scene* scene = new Scene(viewPlane, tracer, zEye, zDist);
 
 	cout << "+++ Scene initialised." << endl;
 
@@ -58,7 +66,8 @@ int main() {
 
 	cout << "+++ Scene built." << endl;
 
-	scene->renderScene();
+	//scene->renderScene();
+	scene->renderPerspective();
 
 	cout << "+++ Scene rendered." << endl;
 

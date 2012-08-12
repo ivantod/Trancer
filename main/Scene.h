@@ -18,10 +18,11 @@
 class RayTracer;
 class Scene {
 public:
-	Scene(ViewPlane viewPlane, RayTracer* rayTracer);
+	Scene(ViewPlane viewPlane, RayTracer* rayTracer, double zEye, double zDist);
 	virtual ~Scene();
 
 	void renderScene();
+	void renderPerspective();
 
 	std::vector<Shape*> shapes;
 	std::vector<Light*> lights;
@@ -34,6 +35,9 @@ public:
 	void addLight(Light* light);
 
 private:
+
+	double zEye; // z-coordinate of eye position;
+	double zDist;
 
 };
 
