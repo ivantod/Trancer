@@ -20,6 +20,7 @@ public:
 	virtual bool intersect(Ray& r, double& tMin, ShadingInfo& shadingInfo) const = 0;
 
 	Colour colour;
+
 };
 
 #endif /* SHAPE_H_ */

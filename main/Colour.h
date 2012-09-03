@@ -46,6 +46,11 @@ inline Colour operator*(const Colour &c, float coeff) {
 	return retCol;
 }
 
+inline Colour operator*=(const Colour &c, float coeff) {
+	Colour retCol = { c.red * coeff, c.green * coeff, c.blue * coeff };
+	return retCol;
+}
+
 inline Colour operator*(const Colour &c1, const Colour &c2) {
 	Colour retCol = { c1.red * c2.red, c1.green * c2.green, c1.blue * c2.blue };
 	return retCol;

@@ -11,13 +11,14 @@
 #include "Colour.h"
 #include "RayTracer.h"
 #include "Scene.h"
-#include "SimpleRayTracer.h"
 #include "Sphere.h"
 #include "Shape.h"
+#include "Camera.h"
 
-// tracers
+// Specific classes for rendering, change here for different effects
 //#include "SimpleRayTracer.h"
 #include "MultiObjectRayTracer.h"
+#include "PinholeCamera.h"
 
 
 using namespace std;
@@ -66,12 +67,20 @@ int main() {
 
 	cout << "+++ Scene built." << endl;
 
+	Camera* camera = new PinholeCamera(Point(300,400,500), Point(0,0,-50), 500);
+	camera->computeUnitVectors();
+
+	cout << "+++ Camera initialised." << endl;
+
+	camera->renderScene(scene);
+
 	//scene->renderScene();
-	scene->renderPerspective();
+	//scene->renderPerspective();
 
 	cout << "+++ Scene rendered." << endl;
 
 	delete tracer;
+	delete camera;
 
 	cout << "!!! All done." << endl;
 

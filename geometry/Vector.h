@@ -15,6 +15,9 @@ public:
 	virtual ~Vector();
 
 	void normalise();
+	Vector& hat();
+
+	void rotateZAxis(double radians);
 
 	Vector operator-() const;
 
@@ -56,6 +59,8 @@ inline Vector Vector::operator+(const Vector& v) const {
 inline Vector Vector::operator-(const Vector& v) const {
 	return Vector(x-v.x, y-v.y, z-v.z);
 }
+
+
 
 inline Vector& Vector::operator+=(const Vector& v) {
 	x+=v.x; y+=v.y; z+=v.z;

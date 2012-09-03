@@ -21,7 +21,7 @@ public:
 
 	Point operator+(const Vector& v) const;
 
-private:
+//private:
 	double x;
 	double y;
 	double z;
